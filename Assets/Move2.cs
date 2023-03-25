@@ -11,6 +11,9 @@ public class Move2 : MonoBehaviour
     public float turnSmoothTime = 0.1f;
 
     float turnSmoothVelocity;
+
+    public GameObject[] objectsToReposition;
+
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -26,13 +29,24 @@ public class Move2 : MonoBehaviour
             transform.forward = direction;
             controller.Move(direction * speed * Time.deltaTime);
         }
-        PlayerInteract();
+       // PlayerInteract();
+    }
+    private void FixedUpdate()
+    {
+        
     }
     private void PlayerInteract()
     {
         if (Input.GetButton("Interact"))
         {
-            Debug.Log("INTERACTINA");
+            //foreach (GameObject obj in objectsToReposition)
+            //{
+            //    float x = Random.Range(-14, 14);
+            //    float z = Random.Range(-14, 14);
+            //    obj.transform.position = new Vector3(x, 1, z);
+            //    Debug.Log(obj.transform.position.x + "   " + obj.transform.position.z);
+            //}
+
         }
     }
 }
